@@ -114,7 +114,7 @@ model LeaderboardEntry {
 
 ## Author
 
-yasin-sh — [GitHub]([yab-sh](https://github.com/yab-sh) | LinkedIn: [yasin-sh](https://www.linkedin.com/in/yasin-sh/)
+yasin-sh — [GitHub](https://github.com/yab-sh) | [LinkedIn](https://www.linkedin.com/in/yasin-sh/)
 
 ---
 
