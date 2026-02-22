@@ -47,43 +47,43 @@ This is the Express backend for Find'em!. It handles user registration, login, c
 ## Getting Started
 
 1. Clone the repository
-
+```
 git clone https://github.com/yab-sh/findem-backend.git
 cd findem-backend
-
+```
 
 2. Install dependencies
-
+```
 npm install
-
+```
 
 3. Set up PostgreSQL database
-
+```
 createdb findem
-
+```
 
 4. Create a .env file
-
+```
 DATABASE_URL="postgresql://user:password@localhost:5432/findem"
 PORT=3000
-
+```
 
 5. Run Prisma migrations
-
+```
 npx prisma migrate dev --name init
-
+```
 
 6. Start the server
-
+```
 npm run dev
-
+```
 
 The API will be available at http://localhost:3000/api/v1
 
 ---
 
 ## Database Schema
-
+```Prisma
 model Player {
   id           String   @id @default(uuid())
   nickname     String   @unique
@@ -109,12 +109,12 @@ model LeaderboardEntry {
   bestTimeMs Int
   updatedAt  DateTime @updatedAt
 }
-
+```
 ---
 
 ## Author
 
-Yasin — GitHub: yab-sh | LinkedIn: yasin-sh
+yasin-sh — [GitHub]([yab-sh](https://github.com/yab-sh) | LinkedIn: [yasin-sh](https://www.linkedin.com/in/yasin-sh/)
 
 ---
 
