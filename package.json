@@ -1,0 +1,40 @@
+{
+  "name": "odin-image-tagging-backend",
+  "version": "1.0.0",
+  "description": "The Back End for TheOdinProject's photo tagging app",
+  "homepage": "https://github.com/yab-sh/odin-image-tagging-backend#readme",
+  "bugs": {
+    "url": "https://github.com/yab-sh/odin-image-tagging-backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yab-sh/odin-image-tagging-backend.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.4.1",
+    "@prisma/client": "^7.4.1",
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.3.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "pg": "^8.18.0",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "prisma": "^7.4.1",
+    "tsx": "^4.21.0"
+  }
+}

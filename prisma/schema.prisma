@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Photo {
+  id           String        @id @default(uuid())
+  url          String
+  width        Int
+  height       Int
+  createdAt    DateTime      @default(now())
+
+  characters   Character[]
+  gameSessions GameSession[]
+}
+
+model Character {
+  id        String   @id @default(uuid())
+  name      String
+  photoId   String
+  photo     Photo    @relation(fields: [photoId], references: [id], onDelete: Cascade)
+
+  centerX   Float
+  centerY   Float
+  radius    Float
+
+  createdAt DateTime @default(now())
+
+  @@unique([photoId, name])
+  @@index([photoId])
+}
+
+model Player {
+  id           String   @id @default(uuid())
+  nickname     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+
+  sessions     GameSession[]
+  leaderboard  LeaderboardEntry?
+}
+
+model GameSession {
+  id         String   @id @default(uuid())
+
+  photoId    String
+  photo      Photo    @relation(fields: [photoId], references: [id])
+
+  playerId   String
+  player     Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  durationMs Int
+  foundAll   Boolean
+
+  createdAt  DateTime @default(now())
+
+  @@index([playerId])
+  @@index([photoId])
+}
+
+model LeaderboardEntry {
+  id         String   @id @default(uuid())
+
+  playerId   String   @unique
+  player     Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  bestTimeMs Int
+  updatedAt  DateTime @updatedAt
+}
